@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <script src='http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://api-service.instruction.cld.dev.navitime.co.jp/teamb/v1/map_script?host=localhost"></script>
+
+  <title>Document</title>
+
+  <style>
+    #map { /* <body>内に記載しているID名 */
+        width: 900px; /* 幅 */
+        height: 450px; /* 高さ */
+        background-color: black; /* 背景色 */
+        margin: 0 auto;
+    }
+  </style>
+</head>
+<body style="text-align: center;">
+  
+  
+  <!-- Insert React -->
+  <div id="root"></div>
+  
+  <!--<p>
+    <button type="button" onclick="clickBtn()" id="map_btn">Map表示</button>
+  </p>-->
+
+  <!-- Insert Navitime Map -->
+  <div id="mapdiv" style="border: 1px solid black; display: block;">
+    <p>
+      <button id="search" type="button" onclick="search(), map.resizeTo();">ナビタイムジャパン ⇔ 東京タワ- のルート線を表示</button>
+    </p>
+    <div id="map"></div>
+  </div>
+
+  <!-- Loading React -->
+  <script src="index.bundle.js"></script>
+  <!-- Loading Function for Navitime Map -->
+  <script src="navi_map.js"></script>
+
+
+</body>
+</html>
