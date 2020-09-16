@@ -76,4 +76,3 @@ if(p1.style.display=="block"){
   if (count === 0) initMap();
   count++;
 }*/
-
