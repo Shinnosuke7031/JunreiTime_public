@@ -5,18 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src='http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://api-service.instruction.cld.dev.navitime.co.jp/teamb/v1/map_script?host=shinnosuke7031.github.io"></script>
+  <script src="https://api-service.instruction.cld.dev.navitime.co.jp/teamb/v1/map_script?host=localhost:3000"></script>
+  
+  <link rel="stylesheet" href="./reset.css">
 
   <title>Document</title>
 
   <style>
     #map { /* <body>内に記載しているID名 */
-        width: 900px; /* 幅 */
-        height: 450px; /* 高さ */
+        width: 800px; /* 幅 */
+        height: 350px; /* 高さ */
         background-color: black; /* 背景色 */
         margin: 0 auto;
+        z-index: 10;
     }
   </style>
 </head>
@@ -26,17 +29,17 @@
   <!-- Insert React -->
   <div id="root"></div>
   
-  <!--<p>
+  <!-- <p>
     <button type="button" onclick="clickBtn()" id="map_btn">Map表示</button>
-  </p>-->
+  </p> -->
 
   <!-- Insert Navitime Map -->
-  <div id="mapdiv" style="border: 1px solid black; display: block;">
+  <!-- <div id="mapdiv">
     <p>
-      <button id="search" type="button" onclick="search(), map.resizeTo();">ナビタイムジャパン ⇔ 東京タワ- のルート線を表示</button>
+      <button type="button" onclick="search()">ナビタイムジャパン ⇔ 東京タワ- のルート線を表示</button>
     </p>
     <div id="map"></div>
-  </div>
+  </div> -->
 
   <!-- Loading React -->
   <script src="index.bundle.js"></script>
