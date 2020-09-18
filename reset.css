@@ -360,3 +360,15 @@ blockquote, button, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pr
     padding: 0
 }
 
+#mapdiv {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%,-50%);
+    margin: 0 auto;
+}
+
+#pin {
+    display: none;
+    margin: 0 auto;
+}

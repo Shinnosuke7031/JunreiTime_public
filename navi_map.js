@@ -1,43 +1,24 @@
-var tocho = new navitime.geo.LatLng('35.689614', '139.691634');
-var shin_okubo = new navitime.geo.LatLng('35.701429', '139.700003');
+var tocho = new navitime.geo.LatLng('35.689535', '139.691896');//139.828491, 35.652832
+//var shin_okubo = new navitime.geo.LatLng('35.701429', '139.700003');
 
-function initMap() {
+function initMap(lat, lon) {
   // 中心地点(緯度,経度)の設定(緯度経度は世界測地系の度数表示)
   // ナビタイム独自の記法（https://api-sdk.navitime.co.jp/api/specs/tilescript_tutorial/latlng.html#id2）
-  center = new navitime.geo.LatLng('35.667395', '139.714896');
+  center = new navitime.geo.LatLng(lat, lon);
   // 地図を描画・制御する要素(オブジェクト)を作成(引数は, [地図を表示するためのDivId, 中心緯度経度, ズーム値])
   // ナビタイム独自の記法（https://api-sdk.navitime.co.jp/api/specs/tilescript_tutorial/map.html）
-  map = new navitime.geo.Map('map', tocho, 15);
+  map = new navitime.geo.Map('map', center, 15);
   
-  var infoWindow = new navitime.geo.overlay.InfoWindow({
+  /*var infoWindow = new navitime.geo.overlay.InfoWindow({
     map: map,                                              // 表示対象地図インスタンス(setMapメソッドでも可)
-    position: center,                                      // 緯度経度
-    content: "東京駅",                                     // 内部に表示させる内容
+    position: tocho,                                      // 緯度経度
+    content: "都庁",                                     // 内部に表示させる内容
     pixelOffset: {x: 0, y: -30},                           // x: 表示位置X →方向 ＋, y: 表示位置Y ↓方向 ＋
     zIndex: 100,                                           // その他のオーバーレイと比較したzIndex
     maxWidth: 150,                                         //　吹き出しの最大幅  
     closeButtonDisplay:  navitime.geo.DisplayType.ALWAYS   // クローズボタンの表示種別
-  });
+  });*/
 
-/*  //動くピン
-draggablePin = new navitime.geo.overlay.Pin({
-  icon:'pin.png',
-  position:tocho,
-  draggable:true,
-  map:map,
-  title:'東京都庁'
-});
-
-//動かないピン
-var staticPin = new navitime.geo.overlay.Pin({
-  icon:'pin.png',
-  position:shin_okubo,
-  draggable:true,
-  map:map,
-  title:'新大久保'
-});*/
-
-document.getElementById('mapdiv').style.display=('none');
 }
 
 //ピンの切り替え
@@ -45,7 +26,7 @@ function switchPin() {
 draggablePin.setVisible(!draggablePin.getVisible());
 }
 // HTMLの読み込みが完了してから, initMap関数を実行(scriptタグの読み込みが完了した状態で実行するために必要)
-  window.onload = initMap;
+  //window.onload = initMap;
 
 function search() {
     // ルート線を取得するためのurlを定義
@@ -78,11 +59,14 @@ function connectFailure(error) {
     alert(error);
 }
 
+//ここでマップの初期化などをやる
 document.getElementById("pin").onclick = function() {
-  const pin_lat = document.getElementById("pin_lat").value;
-  const pin_lon = document.getElementById("pin_lon");
+  const pin_lat = document.getElementById("a").value;
+  const pin_lon = document.getElementById("b").value;
+  initMap(pin_lat, pin_lon);
   console.log(pin_lat);
-  var pinposi = new navitime.geo.LatLng('35.689614', '139.691634');
+  console.log(pin_lon);
+  const pinposi = new navitime.geo.LatLng(pin_lat, pin_lon);
 
   draggablePin = new navitime.geo.overlay.Pin({
     icon:'pin.png',
@@ -91,6 +75,7 @@ document.getElementById("pin").onclick = function() {
     map:map,
     title:'東京都庁'
   });
+
 };
 
 
