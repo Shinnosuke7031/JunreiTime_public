@@ -1,7 +1,8 @@
+var tocho = new navitime.geo.LatLng('35.689614', '139.691634');
+var shin_okubo = new navitime.geo.LatLng('35.701429', '139.700003');
+
 function initMap() {
   // 中心地点(緯度,経度)の設定(緯度経度は世界測地系の度数表示)
-  var tocho = new navitime.geo.LatLng('35.689614', '139.691634');
-  var shin_okubo = new navitime.geo.LatLng('35.701429', '139.700003');
   // ナビタイム独自の記法（https://api-sdk.navitime.co.jp/api/specs/tilescript_tutorial/latlng.html#id2）
   center = new navitime.geo.LatLng('35.667395', '139.714896');
   // 地図を描画・制御する要素(オブジェクト)を作成(引数は, [地図を表示するためのDivId, 中心緯度経度, ズーム値])
@@ -18,7 +19,7 @@ function initMap() {
     closeButtonDisplay:  navitime.geo.DisplayType.ALWAYS   // クローズボタンの表示種別
   });
 
-  //動くピン
+/*  //動くピン
 draggablePin = new navitime.geo.overlay.Pin({
   icon:'pin.png',
   position:tocho,
@@ -34,7 +35,7 @@ var staticPin = new navitime.geo.overlay.Pin({
   draggable:true,
   map:map,
   title:'新大久保'
-});
+});*/
 
 document.getElementById('mapdiv').style.display=('none');
 }
@@ -76,5 +77,20 @@ function connectSuccessRouteShape(response) {
 function connectFailure(error) {
     alert(error);
 }
+
+document.getElementById("pin").onclick = function() {
+  const pin_lat = document.getElementById("pin_lat").value;
+  const pin_lon = document.getElementById("pin_lon");
+  console.log(pin_lat);
+  var pinposi = new navitime.geo.LatLng('35.689614', '139.691634');
+
+  draggablePin = new navitime.geo.overlay.Pin({
+    icon:'pin.png',
+    position:pinposi,
+    draggable:true,
+    map:map,
+    title:'東京都庁'
+  });
+};
 
 
