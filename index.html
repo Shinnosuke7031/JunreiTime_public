@@ -7,7 +7,7 @@
 
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://api-service.instruction.cld.dev.navitime.co.jp/teamb/v1/map_script?host=shinnosuke7031.github.io"></script>
+  <script src="https://api-service.instruction.cld.dev.navitime.co.jp/teamb/v1/map_script?host=shinnosuke7031.github.io"></script><!-- deploy : shinnosuke7031.github.io -->
   
   <link rel="stylesheet" href="./reset.css">
 
@@ -15,9 +15,13 @@
 
   <style>
     #map { /* <body>内に記載しているID名 */
-        width: 600px; /* 幅 */
-        height: 400px; /* 高さ */
-        margin: 0 auto;
+        width: 80%; /* 幅 */
+        height: calc(100vh - 64px - 126px - 1px); /* 高さ　ヘッダーとフッターの高さを引く */
+        background-color: black; /* 背景色 */
+        margin: 0;
+        position: absolute;
+        right: 0;
+        top: 65px;
     }
   </style>
 </head>
@@ -26,6 +30,19 @@
   <input type="hidden" id="a" />
   <input type="hidden" id="b" />
   
+  <button type="hidden" id="pin_search">ピン刺す</button>
+  <button type="hidden" id="getRoute">ルート検索</button>
+
+  <!-- 聖地データのピン配置用 -->
+  <input type="hidden" id="pin_lat" />
+  <input type="hidden" id="pin_lon" />
+  <input type="hidden" id="pin_title"/>
+
+  <!-- 選択された聖地に移動する用 -->
+  <input type="hidden" id="go_to_seichi_lat" />
+  <input type="hidden" id="go_to_seichi_lon" />
+  <input type="hidden" id="go_to_seichi_title"/>
+  <button type="hidden" id="go_to_seichi">聖地に移動</button>
   
   <!-- Insert React -->
   <div id="root"></div>
