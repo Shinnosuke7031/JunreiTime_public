@@ -25,7 +25,7 @@ function search(lat, lon) {
 
     // ルート線を取得するためのurlを定義
     //let url = 'https://api-service.instruction.cld.dev.navitime.co.jp/teamb/v1/shape_transit?start=35.658584,139.745457&goal=35.667395,139.714896&start_time=2020-09-04T09:00:00&options=transport_shape&order=fare';
-    let url = 'https://api-service.instruction.cld.dev.navitime.co.jp/teamb/v1/shape_transit?start=' + start_lat + ',' + start_lon + '&goal=' + lat + ',' + lon + '&start_time=2020-09-04T09:00:00&options=transport_shape&order=fare';
+    let url = 'https://api-service.instruction.cld.dev.navitime.co.jp/teamb/v1/shape_transit?start=' + start_lat + ',' + start_lon + '&goal=' + lat + ',' + lon + '&start_time=2020-09-04T09:00:00&options=transport_shape&order=fare&unuse=domestic_flight.ferry.superexpress_train.sleeper_ultraexpress.ultraexpress_train.express_train.semiexpress_train.shuttle_bus.local_bus.highway_bus';
     axios
         .get(url)　 // ルート線を取得
         .then(connectSuccessRouteShape) // ルート線が取得できた場合　connectSuccessRouteShapeメソッドの呼び出し
@@ -103,7 +103,6 @@ document.getElementById('go_to_seichi').onclick = function() {
   console.log(pin_lon)
   console.log(pin_title)
 
-
   const pinposi = new navitime.geo.LatLng(pin_lat, pin_lon);
 
   map.moveTo(pinposi, 15);
@@ -119,4 +118,6 @@ document.getElementById('go_to_seichi').onclick = function() {
   });
 
 }
+
+
 
