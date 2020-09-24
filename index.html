@@ -31,6 +31,8 @@
   <input type="hidden" id="b" />
   
   <button type="hidden" id="pin_search">ピン刺す</button>
+  <button type="hidden" id="pin_search_keyword">ピン刺す</button>
+  <button type="hidden" id="keyword_move">キーワード検索にてマップ移動</button>
   <button type="hidden" id="getRoute">ルート検索</button>
 
   <!-- 聖地データのピン配置用 -->
@@ -38,11 +40,21 @@
   <input type="hidden" id="pin_lon" />
   <input type="hidden" id="pin_title"/>
 
+  <!-- 聖地データのピン配置用(キーワード検索用) -->
+  <input type="hidden" id="pin_lat_keyword" />
+  <input type="hidden" id="pin_lon_keyword" />
+  <input type="hidden" id="pin_title_keyword"/>
+
   <!-- 選択された聖地に移動する用 -->
   <input type="hidden" id="go_to_seichi_lat" />
   <input type="hidden" id="go_to_seichi_lon" />
   <input type="hidden" id="go_to_seichi_title"/>
   <button type="hidden" id="go_to_seichi">聖地に移動</button>
+
+  <!-- キーワード検索で、移動するため -->
+  <input type="hidden" id="move_lat" />
+  <input type="hidden" id="move_lon" />
+  
   
   <!-- Insert React -->
   <div id="root"></div>
